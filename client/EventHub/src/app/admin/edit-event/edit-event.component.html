@@ -1,0 +1,44 @@
+<app-admin-header></app-admin-header>
+
+<div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formAdmission"></span>
+  
+        
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Marvellous Infosystems Admimission</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="EventInfo">
+              <div class="form-group">
+                
+                <input [class.is-invalid]="EventInfo.get('name')?.invalid && EventInfo.get('name')?.touched" formControlName="name" type="text" placeholder="Name" class="form-control rounded-0" [(ngModel)]="EventData.name" name="Firstname">
+                <small *ngIf="EventInfo.get('name')?.errors?.['required'] && EventInfo.get('FirstName')?.touched" class="text-danger">Name is required</small>
+                
+              </div>
+              
+                <div class="form-group">
+
+                    <input [class.is-invalid]="EventInfo.get('description')?.invalid && EventInfo.get('description')?.touched" formControlName="description" type="text" placeholder="Description" class="form-control rounded-0" [(ngModel)]="EventData.description" name="description">
+                    <small *ngIf="EventInfo.get('description')?.errors?.['required'] && EventInfo.get('description')?.touched" class="text-danger">Description is required</small>
+                </div>
+              
+              <div class="form-group">
+              <input [class.is-invalid]="EventInfo.get('Teacher')?.invalid && EventInfo.get('Teacher')?.touched" formControlName="Teacher" type="text" placeholder="Teacher" class="form-control rounded-0" [(ngModel)]="EventData.Teacher" name="Teacher">
+              <small *ngIf="EventInfo.get('Teacher')?.errors?.['required'] && EventInfo.get('Teacher')?.touched"  class="text-danger">Name of Teacher is required</small>
+            </div>
+
+
+               <div class="text-center">
+                <button [disabled]="EventInfo.invalid" type="submit" class="btn btn-success float-center" (click)="onSubmit()" >Submit</button>
+               </div>           
+            </form>
+          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
+      </div>
+    </div>
+  </div>

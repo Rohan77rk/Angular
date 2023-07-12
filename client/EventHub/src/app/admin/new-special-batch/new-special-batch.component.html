@@ -1,0 +1,44 @@
+<app-admin-header></app-admin-header>
+
+<div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formAdmission"></span>
+  
+        
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Marvellous Infosystems Admimission</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="SpecialInfo">
+              <div class="form-group">
+                
+                <input [class.is-invalid]="SpecialInfo.get('name')?.invalid && SpecialInfo.get('name')?.touched" formControlName="name" type="text" placeholder="Name" class="form-control rounded-0" [(ngModel)]="SpecialData.name" name="name">
+                <small *ngIf="SpecialInfo.get('name')?.errors?.['required'] && SpecialInfo.get('name')?.touched" class="text-danger">Name is required</small>
+                
+              </div>
+              
+                <div class="form-group">
+
+                    <input [class.is-invalid]="SpecialInfo.get('description')?.invalid && SpecialInfo.get('description')?.touched" formControlName="description" type="text" placeholder="Description" class="form-control rounded-0" [(ngModel)]="SpecialData.description" name="description">
+                    <small *ngIf="SpecialInfo.get('description')?.errors?.['required'] && SpecialInfo.get('description')?.touched" class="text-danger">Description is required</small>
+                </div>
+              
+              <div class="form-group">
+              <input [class.is-invalid]="SpecialInfo.get('Teacher')?.invalid && SpecialInfo.get('Teacher')?.touched" formControlName="Teacher" type="text" placeholder="Teacher" class="form-control rounded-0" [(ngModel)]="SpecialData.Teacher" name="Teacher">
+              <small *ngIf="SpecialInfo.get('Teacher')?.errors?.['required'] && SpecialInfo.get('Teacher')?.touched"  class="text-danger">Name of Teacher is required</small>
+            </div>
+
+
+               <div class="text-center">
+                <button [disabled]="SpecialInfo.invalid" type="submit" class="btn btn-success float-center" (click)="onSubmit()" >Submit</button>
+               </div>           
+            </form>
+          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
+      </div>
+    </div>
+  </div>

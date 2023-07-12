@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/events" routerLinkActive="active">Marvellous Infosystems Eventhub</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/events" routerLinkActive="active">Upcoming Marvellous Events for all</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/specialevents" routerLinkActive="active">Events for Marvellous Family Members</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+        <a class="nav-link" *ngIf="!_auth.isLoggedIn()" routerLink="/login" routerLinkActive="active">Login to EventHub</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_auth.isLoggedIn()" (click)="_auth.logout()" >Logout</a>        
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin</a>
+        </li>
+        
+      </ul>
+    
+  </div>
+</nav>
+
+
+<div class="container">
+
+  <div class="row mt-5">
+    <div class="col-md-4 mb-3" *ngFor="let event of SpecialEvents">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{event.name}}</h5>
+          <p class="card-text">{{event.description}}</p>
+          <a routerLink="specialadmission" routerLinkActive="active" class="btn btn-success">Take Admission</a>
+        </div>
+        <div class="card-footer text-muted">
+          {{event.Teacher}}
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

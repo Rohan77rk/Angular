@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/admin/adminevent"  routerLinkActive="active">Marvellous Admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/adminevent" *ngIf="_auth.AdminisLoggedIn()" routerLinkActive="active">Upcoming Marvellous Events for all</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/admin/adminspecial" *ngIf="_auth.AdminisLoggedIn()" routerLinkActive="active">Events for Marvellous Family Members</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <a class="nav-link" *ngIf="!_auth.AdminisLoggedIn()" routerLink="adminlogin" routerLinkActive="active">Login to Admin</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_auth.AdminisLoggedIn()" (click)="_auth.Adminlogout()" >Logout</a>        
+        <li class="nav-item">
+    
+        </li>
+        
+      </ul>
+
+      <a class="navbar-brand" routerLink="/events" routerLinkActive="active">Back to Users</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      
+    </div>
+  </nav>

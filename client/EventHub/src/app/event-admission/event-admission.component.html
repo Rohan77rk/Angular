@@ -1,0 +1,75 @@
+<div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formAdmission"></span>
+  
+        
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Marvellous Infosystems Admimission</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="StudentInfo">
+              <div class="form-group">
+                
+                <input [class.is-invalid]="StudentInfo.get('FirstName')?.invalid && StudentInfo.get('FirstName')?.touched" formControlName="FirstName" type="text" placeholder="First Name" class="form-control rounded-0" [(ngModel)]="StudentData.FirstName" name="Firstname">
+                <small *ngIf="StudentInfo.get('Firstname')?.errors?.['required'] && StudentInfo.get('FirstName')?.touched" class="text-danger">FirstName is required</small>
+                <small *ngIf="StudentInfo.get('FirstName')?.errors?.['pattern']" class="text-danger">Only Alphabets are allowed</small>
+              </div>
+              
+                <div class="form-group">
+
+                    <input [class.is-invalid]="StudentInfo.get('LastName')?.invalid && StudentInfo.get('LastName')?.touched" formControlName="LastName" type="text" placeholder="Last Name" class="form-control rounded-0" [(ngModel)]="StudentData.LastName" name="Lastname">
+                    <small *ngIf="StudentInfo.get('LastName')?.errors?.['required'] && StudentInfo.get('LastName')?.touched" class="text-danger">LastName is required</small>
+                    <small *ngIf="StudentInfo.get('LastName')?.errors?.['pattern']&& StudentInfo.get('LastName')?.touched" class="text-danger">Only Alphabets are allowed</small>
+                </div>
+              
+              <div class="form-group">
+              <input [class.is-invalid]="StudentInfo.get('PhoneNumber')?.invalid && StudentInfo.get('PhoneNumber')?.touched" formControlName="PhoneNumber" type="text" placeholder="Phone Number(10 Digits only)" class="form-control rounded-0" [(ngModel)]="StudentData.PhoneNumber" name="Mobilenumber">
+              <small *ngIf="StudentInfo.get('PhoneNumber')?.errors?.['required'] && StudentInfo.get('PhoneNumber')?.touched"  class="text-danger">Mobile number is required</small>
+              <small *ngIf="StudentInfo.get('PhoneNumber')?.errors?.['pattern'] && StudentInfo.get('PhoneNumber')?.touched" class="text-danger">Only Digits are allowed</small>
+              <small *ngIf="StudentInfo.get('PhoneNumber')?.errors?.['minlength'] && StudentInfo.get('PhoneNumber')?.touched" class="text-danger">Enter 10 digits valid number</small>
+              <small *ngIf="StudentInfo.get('PhoneNumber')?.errors?.['maxlength'] && StudentInfo.get('PhoneNumber')?.touched" class="text-danger">Number should not be more than 10 digits</small>
+            </div>
+            <div class="form-group">
+            <input [class.is-invalid]="StudentInfo.get('Email')?.invalid && StudentInfo.get('Email')?.touched" formControlName="Email" type="email" placeholder="Email" class="form-control rounded-0" [(ngModel)]="StudentData.Email" name="Email">
+            <small *ngIf="StudentInfo.get('Email')?.errors?.['required'] && StudentInfo.get('Email')?.touched" class="text-danger">Email Id is required</small>
+            <small *ngIf="StudentInfo.get('Email')?.errors?.['email'] && StudentInfo.get('Email')?.touched" class="text-danger">Invaild email please enter valid Email Id</small>
+        </div>
+        <div class="form-group">
+            <input [class.is-invalid]="StudentInfo.get('Education')?.invalid && StudentInfo.get('Education')?.touched" formControlName="Education" type="text" placeholder="Education" class="form-control rounded-0" [(ngModel)]="StudentData.Education" name="Address">
+            <small *ngIf="StudentInfo.get('Education')?.errors?.['required'] && StudentInfo.get('Education')?.touched" class="text-danger">Education is required</small>
+        </div>
+
+        <div class="form-group">
+            <input [class.is-invalid]="StudentInfo.get('Address')?.invalid && StudentInfo.get('Address')?.touched" formControlName="Address" type="text" placeholder="Address" class="form-control rounded-0" [(ngModel)]="StudentData.Address" name="Address">
+            <small *ngIf="StudentInfo.get('Address')?.errors?.['required'] && StudentInfo.get('Address')?.touched" class="text-danger">Education is required is required</small>
+            <small *ngIf="StudentInfo.get('Address')?.errors?.['minlength'] && StudentInfo.get('Address')?.touched" class="text-danger">Please enter full address</small>
+        </div>
+        <div class="form-group">
+
+            <label><h2>Batch</h2></label>
+            <select [class.is-invalid]="StudentInfo.get('Batch')?.invalid && StudentInfo.get('Batch')?.touched" formControlName="Batch" name="Batch" id="" [(ngModel)]="StudentData.Batch" class="form-control rounded-0">
+                
+                     
+                    <option  *ngFor="let event of events">{{event.name}}</option>
+                    
+                </select>
+                <small *ngIf="StudentInfo.get('Batch')?.errors?.['required'] && StudentInfo.get('Batch')?.touched" class="text-danger">Batch is required</small>
+        </div>
+        <div>
+            <input id="terms" type="checkbox">
+            <label for="terms">I have read and agree to the Terms and conditions, Privacy & Discliamer(click link to view)</label>
+        </div>     
+
+               <div class="text-center">
+                <button [disabled]="StudentInfo.invalid" type="submit" class="btn btn-success float-center" (click)="onSubmit()" >Submit</button>
+               </div>           
+            </form>
+          </div>
+          <!--/card-block-->
+        </div>
+        <!-- /form card login -->
+      </div>
+    </div>
+  </div>

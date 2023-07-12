@@ -1,0 +1,24 @@
+<app-admin-header></app-admin-header>
+
+<div class="container">
+<div style="display: flex;justify-content: center;margin-top: 10px;">
+    <a routerLink="specialadmissionrequest" routerLinkActive="active" class="btn btn-primary col-md-3" style="margin-right: 5px;">Admission Request</a>
+<a routerLink="launchspecial" routerLinkActive="active" class="btn btn-primary col-md-3" style="margin-right: 5px;" >Launch new Batch</a>
+</div>
+    <div class="row mt-5">
+      <div class="col-md-4 mb-3" *ngFor="let event of events">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">{{event.name}}</h5>
+            <p class="card-text">{{event.description}}</p>
+            <button class="btn btn-primary" (click)="Update(event._id)">Edit Batch Details</button>
+            <button class="btn btn-danger" (click)="Delete(event._id)">Delete</button>
+        </div>
+        <div class="card-footer text-muted">
+            {{event.Teacher}}
+        </div>
+    </div>
+</div>
+
+  </div>
+  </div>

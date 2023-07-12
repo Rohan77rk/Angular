@@ -1,0 +1,25 @@
+<app-admin-header></app-admin-header>
+
+<div class="container">
+
+    <div class="row mt-5">
+      <div class="col-md-4 mb-3" *ngFor="let event of events">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">NAME : {{event.FirstName}} {{event.LastName}}</h5>
+            
+            <p class="card-text">PHONE: {{event.PhoneNumber}}</p>
+            <p class="card-text">EMAIL: {{event.Email}}</p>
+            <p class="card-text">EDUCATION: {{event.Education}}</p>
+            <p class="card-text">ADDRESS: {{event.Address}}</p>
+        </div>
+        <div class="card-footer text-muted">
+            <h5 class="card-title">BATCH: {{event.Batch}}</h5>
+            <button class="btn btn-primary col-md-3" style="margin-right: 5px;" (click)="Delete(event._id)" >Delete</button>
+            
+        </div>
+    </div>
+</div>
+
+  </div>
+  </div>
